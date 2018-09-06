@@ -1,0 +1,22 @@
+Measurement = une table SQL
+Tags = une colonne indexée (column) dans une base SQL
+Fields = aux colonnes non indexées dans une base SQL
+Points = à une ligne (row)dans une base SQL
+
+Créer BDD :
+-< CREATE DATABASE "nomdb"
+
+Supprimer BDD :
+-< DROP DATABASE "nomdb"
+
+Créer une politique de rétention :
+-< CREATE RETENTION POLICY "nom_politique_retention" ON "nom_database" DURATION "duree" REPLICATION [SHARD DURATION "duree_shard"] [DEFAULT]
+	Ex : CREATE RETENTION POLICY "30days" ON "nomdb" DURATION 30d REPLICATION 1 DEFAULT
+
+Modifier une politique de rétention :
+-< ALTER RETENTION POLICY "nom_politique_retention" ON "nom_database" DURATION "duree" REPLICATION SHARD DURATION "duree_shard" DEFAULT
+	Ex : ALTER RETENTION POLICYY "3days" ON "nomdb" DURATION 3d REPLICATION 1 DEFAULT
+	
+Supprimer une politique de rétention :
+-< DROP RETENTION POLICY "3days" ON "nomdb"
+
