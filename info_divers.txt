@@ -1,0 +1,3 @@
+Influxdb :
+	base MTO : meteo_current
+	
