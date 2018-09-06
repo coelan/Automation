@@ -1,0 +1,3 @@
+Installation Grafana :
+http://docs.grafana.org/installation/debian/
+
