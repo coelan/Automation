@@ -39,6 +39,11 @@ Lancement :
 Entrée dans la console :
 -< influx
 
+CREATE USER projetsdiy WITH PASSWORD 'motdepasse!'
+Et maintenant, on lui donne tous les droits sur la base basetest.
+
+GRANT ALL ON basetest TO projetsdiy
+Maintenant on ajoute une politique de rétention de 30 jours
 
 
 Test fonctionnement :
