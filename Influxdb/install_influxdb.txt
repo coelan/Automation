@@ -2,9 +2,36 @@ Tuto :
 https://docs.influxdata.com/influxdb/v0.12/introduction/installation/
 https://portal.influxdata.com/downloads
 
+
+UBUNTU/DEBIAN :
 Installation depuis package (SHA : 16f3ef94ea7b7e5c6dfe38bb3980f4e28c06d259d0d7dff90515eab9b2ec13a0 )
 -< wget https://dl.influxdata.com/influxdb/releases/influxdb_1.6.2_amd64.deb
 -< sudo dpkg -i influxdb_1.6.2_amd64.deb
+
+RASPBIAN :
+Mise à jour des dépôts :
+-< curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+-< sudo apt-get update && apt-get upgrade
+-< sudo apt install apt-transport-https
+-< echo "deb https://repos.influxdata.com/debian jessie stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+-< sudo apt-get update
+-< sudo apt-get install influxdb
+
+Pour enregistrer des données depuis un objet connecté à l’aide d’une requête HTTP ou depuis Node-RED -> autoriser les connexions depuis le port HTTP :
+-< sudo nano /etc/influxdb/influxdb.conf
+Décommenter :
+	[http]
+	# Determines whether HTTP endpoint is enabled.
+	enabled = true
+	
+	# The bind address used by the HTTP service.
+	bind-address = ":8086"
+	
+	# Determines whether user authentication is enabled over HTTP/HTTPS.
+	auth-enabled = false
+
+Puis restart :
+-< sudo service influxdb restart
 
 Lancement :
 -< sudo service influxdb start
@@ -12,22 +39,7 @@ Lancement :
 Entrée dans la console :
 -< influx
 
-InfluxDB est maintenant installé. InfluxDB est déjà pré-configuré. Si vous voulez pouvoir enregistrer des données depuis un objet connecté à l’aide d’une requête HTTP ou depuis Node-RED on va devoir autoriser les connexions depuis le port HTTP. POur cela, il suffit de modifier le fichier de configuration qui se trouve dans le répertoire /etc/influxdb/influxdb.conf :
--< sudo nano /etc/influxdb/influxdb.conf
 
-Décommenter :
-	[http]
-	# Determines whether HTTP endpoint is enabled.
-	enabled = true
-	
-  # The bind address used by the HTTP service.
-  bind-address = ":8086"
-
-  # Determines whether user authentication is enabled over HTTP/HTTPS.
-  auth-enabled = false
-	
-Puis restart :
--< sudo service influxdb restart
 
 Test fonctionnement :
 -< curl -sl -I localhost:8086/ping
