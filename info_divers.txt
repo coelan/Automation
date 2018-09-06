@@ -1,3 +1,12 @@
 Influxdb :
-	base MTO : meteo_current
+	Bases de données :
+		base Météo Température : mto_tempc
+		base Météo Humidité : mto_humidity
+		base Météo Pression : mto_pressure
+		base Météo Vitesse vents : mto_winds
 	
+	Paramétrage Node-red :
+		Server : 127.0.0.1
+		Port : 8086
+		Database : nom de la base cible
+		Measurement : nom de la donnée (tempc, pressure, etc)
