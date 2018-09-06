@@ -1,3 +1,13 @@
 Installation Grafana :
 http://docs.grafana.org/installation/debian/
 
+Dashboard :
+http://blog.mike-greene.com/adding-weather-to-your-grafana-home-dashboard/
+http://blog.mike-greene.com/trending-analyzing-smartthings-devices-part-4/
+
+Services MTO API :
+https://darksky.net/dev/docs/faq
+https://blog.darksky.net/forecast-embeds/
+
+Plugins Panels :
+http://blog.mike-greene.com/trending-analyzing-smartthings-devices-part-4/
