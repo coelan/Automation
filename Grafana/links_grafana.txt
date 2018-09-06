@@ -4,6 +4,10 @@ http://docs.grafana.org/installation/debian/
 Dashboard :
 http://blog.mike-greene.com/adding-weather-to-your-grafana-home-dashboard/
 http://blog.mike-greene.com/trending-analyzing-smartthings-devices-part-4/
+https://www.circuits.dk/datalogger-example-using-sense-hat-influxdb-grafana/
+https://imgur.com/r/homelab/b43Ax
+https://www.pinterest.fr/pin/200973202105705344/?lp=true
+
 
 Services MTO API :
 https://darksky.net/dev/docs/faq
