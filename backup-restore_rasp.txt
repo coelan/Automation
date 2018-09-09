@@ -1,0 +1,8 @@
+Utiliser l'utilitaire de disque
+Fichier / Nouvelle image / à partir boot
+Format DVD/Cd master
+
+
+Restauration :
+Changer extension en .iso (au lieu .cdr)
+Lancer avec Etcher
