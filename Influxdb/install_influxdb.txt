@@ -14,8 +14,7 @@ Mise à jour des dépôts :
 -< sudo apt-get update && sudo apt-get upgrade
 -< sudo apt install apt-transport-https
 -< echo "deb https://repos.influxdata.com/debian jessie stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
--< sudo apt-get update
--< sudo apt-get install influxdb
+-< sudo apt-get update && sudo apt-get install influxdb
 
 Pour enregistrer des données depuis un objet connecté à l’aide d’une requête HTTP ou depuis Node-RED -> autoriser les connexions depuis le port HTTP :
 -< sudo nano /etc/influxdb/influxdb.conf
@@ -39,11 +38,33 @@ Lancement :
 Entrée dans la console :
 -< influx
 
-CREATE USER projetsdiy WITH PASSWORD 'motdepasse!'
-Et maintenant, on lui donne tous les droits sur la base basetest.
+Création des bases :
+-< CREATE DATABASE "temperature"
+-< CREATE DATABASE "humidite"
+-< CREATE DATABASE "pression"
+-< CREATE DATABASE "winds"
+-< CREATE DATABASE "windd"
+-< CREATE DATABASE "airquality"
 
-GRANT ALL ON basetest TO projetsdiy
-Maintenant on ajoute une politique de rétention de 30 jours
+Création des politiques de rétention :
+-< CREATE RETENTION POLICY "30days" ON "temperature" DURATION 30d REPLICATION 1 DEFAULT
+-< CREATE RETENTION POLICY "30days" ON "humidite" DURATION 30d REPLICATION 1 DEFAULT
+-< CREATE RETENTION POLICY "30days" ON "pression" DURATION 30d REPLICATION 1 DEFAULT
+-< CREATE RETENTION POLICY "30days" ON "winds" DURATION 30d REPLICATION 1 DEFAULT
+-< CREATE RETENTION POLICY "30days" ON "windd" DURATION 30d REPLICATION 1 DEFAULT
+-< CREATE RETENTION POLICY "30days" ON "airquality" DURATION 30d REPLICATION 1 DEFAULT
+
+
+Création user :
+-< CREATE USER coelan WITH PASSWORD 'xxx!'
+
+Obtention des droits :
+-< GRANT ALL ON temperature TO coelan
+-< GRANT ALL ON humidite TO coelan
+-< GRANT ALL ON pression TO coelan
+-< GRANT ALL ON winds TO coelan
+-< GRANT ALL ON windd TO coelan
+-< GRANT ALL ON airquality TO coelan
 
 
 Test fonctionnement :
