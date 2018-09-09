@@ -45,6 +45,8 @@ Création des bases :
 -< CREATE DATABASE "winds"
 -< CREATE DATABASE "windd"
 -< CREATE DATABASE "airquality"
+-< CREATE DATABASE "pluie"
+-< CREATE DATABASE "nuage"
 
 Création des politiques de rétention :
 -< CREATE RETENTION POLICY "30days" ON "temperature" DURATION 30d REPLICATION 1 DEFAULT
@@ -53,6 +55,8 @@ Création des politiques de rétention :
 -< CREATE RETENTION POLICY "30days" ON "winds" DURATION 30d REPLICATION 1 DEFAULT
 -< CREATE RETENTION POLICY "30days" ON "windd" DURATION 30d REPLICATION 1 DEFAULT
 -< CREATE RETENTION POLICY "30days" ON "airquality" DURATION 30d REPLICATION 1 DEFAULT
+-< CREATE RETENTION POLICY "30days" ON "pluie" DURATION 30d REPLICATION 1 DEFAULT
+-< CREATE RETENTION POLICY "30days" ON "nuage" DURATION 30d REPLICATION 1 DEFAULT
 
 
 Création user :
@@ -65,7 +69,8 @@ Obtention des droits :
 -< GRANT ALL ON winds TO coelan
 -< GRANT ALL ON windd TO coelan
 -< GRANT ALL ON airquality TO coelan
-
+-< GRANT ALL ON pluie TO coelan
+-< GRANT ALL ON nuage TO coelan
 
 Test fonctionnement :
 -< curl -sl -I localhost:8086/ping
