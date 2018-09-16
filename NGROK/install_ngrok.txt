@@ -22,6 +22,7 @@ tunnels:
   node-red:
     addr: 1880
     proto: http
+    auth: user:password
     bind_tls: true
   grafana:
     addr: 5110
@@ -50,4 +51,5 @@ WantedBy=multi-user.target
 -*-*-*- FIN
 
 #4 - Mettre à jour la liste des SERVICES & Démarrer NGROK
+-< sudo systemctl stop ngrok.service
 -< sudo systemctl daemon-reload && sudo systemctl enable ngrok.service && sudo systemctl start ngrok.service
