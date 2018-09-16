@@ -15,7 +15,7 @@ GitHub : https://github.com/vincenthsu/systemd-ngrok
 -< sudo nano ngrok.yml
 Créer lignes :
 -*-*-*- DEBUT
-authtoken: 5oq2t6hm8aZHWSBAy2hpB_8FtVXsTnZ9XgwXRXzgzZ
+authtoken: TOKEN_HERE
 region: eu
 console_ui: false
 tunnels:
@@ -26,7 +26,7 @@ tunnels:
   grafana:
     addr: 5110
     proto: http
-    auth: coelan:coelan
+    auth: user:password
     bind_tls: true
 -*-*-*- FIN
 
