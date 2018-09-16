@@ -20,7 +20,7 @@ Ouverture HTTP & port :
     ;http_addr =
 
     # The http port  to use
-    http_port = 3000
+    http_port = 5110
 
 Redémarrer le service :
 -< sudo service grafana-server restart
