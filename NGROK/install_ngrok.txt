@@ -1,0 +1,53 @@
+Site NGROK :
+lien ngrok pour Linux ARM (Rasp) : https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip
+
+GitHub : https://github.com/vincenthsu/systemd-ngrok
+
+#1 - Installation :
+-< cd /opt/
+-< sudo mkdir ngrok/
+-< cd /opt/ngrok/
+-< sudo wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip
+-< sudo unzip ngrok-stable-linux-arm.zip
+-< sudo rm ngrok-stable-linux-arm.zip
+
+#2 - Ajout du token :
+-< sudo nano ngrok.yml
+Créer lignes :
+-*-*-*- DEBUT
+authtoken: 5oq2t6hm8aZHWSBAy2hpB_8FtVXsTnZ9XgwXRXzgzZ
+region: eu
+console_ui: false
+tunnels:
+  node-red:
+    addr: 1880
+    proto: http
+    bind_tls: true
+  grafana:
+    addr: 5110
+    proto: http
+    auth: coelan:coelan
+    bind_tls: true
+-*-*-*- FIN
+
+#3 - Ajout du service
+-< sudo nano /etc/systemd/system/ngrok.service
+Créer lignes :
+-*-*-*- DEBUT
+[Unit]
+Description=ngrok
+After=network.target
+
+[Service]
+ExecStart=/opt/ngrok/ngrok start --all --config /opt/ngrok/ngrok.yml
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
+-*-*-*- FIN
+
+#4 - Mettre à jour la liste des SERVICES & Démarrer NGROK
+-< sudo systemctl daemon-reload && sudo systemctl enable ngrok.service && sudo systemctl start ngrok.service

@@ -32,3 +32,5 @@ Login par défaut : admin/admin
 
 Base de données :
 http://192.168.1.11:8086
+
+Ajouter un user sans invitation : roue dentée -> server admin
